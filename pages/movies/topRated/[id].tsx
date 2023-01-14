@@ -32,9 +32,9 @@ export async function getStaticProps({ params }: { params: { id: String } }) {
     `https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=${process.env.TMDB_API}&language=en-US`
   );
 
-  const videos = await resVideo.json()
+  const videos = await resVideo.json();
 
-  const trailer = videos.results.filter((video:any) => video.type === 'Trailer')
+  const trailer = videos.results.filter((video: any) => video.type === 'Trailer');
 
   return {
     props: {
