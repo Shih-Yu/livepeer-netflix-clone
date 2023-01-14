@@ -22,6 +22,10 @@ export default function Navbar() {
         <Link href='/movies/topRated' className='hover:bg-zinc-700 rounded px-3 py-1 mr-3 text-2xl'>
           Top Rated
         </Link>
+        <Link href='/myList' className='hover:bg-zinc-700 rounded px-3 py-1 mr-3 text-2xl'>
+          My List
+        </Link>
+
       </nav>
     </>
   );
