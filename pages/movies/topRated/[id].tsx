@@ -1,6 +1,7 @@
 import React from 'react';
-import { Movies, MovieDetails } from '../../../types';
+import { Movies, MovieDetails, Trailer } from '../../../types';
 import Image from 'next/image';
+import Link from 'next/link';
 import imageLoader from '../../../imageLoader';
 
 export async function getStaticPaths() {
@@ -27,14 +28,23 @@ export async function getStaticProps({ params }: { params: { id: String } }) {
   );
   const movie = await res.json();
 
+  const resVideo = await fetch(
+    `https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=${process.env.TMDB_API}&language=en-US`
+  );
+
+  const videos = await resVideo.json()
+
+  const trailer = videos.results.filter((video:any) => video.type === 'Trailer')
+
   return {
     props: {
       movie,
+      trailer: trailer[0]
     },
   };
 }
 
-export default function MoviesPage({ movie }: { movie: MovieDetails }) {
+export default function MoviesPage({ movie, trailer }: { movie: MovieDetails, trailer: Trailer }) {
   return (
     <div className='flex flex-row '>
       <Image
@@ -54,7 +64,9 @@ export default function MoviesPage({ movie }: { movie: MovieDetails }) {
         <p className='mt-1'>Rating: {movie.vote_average} /10</p>
         <p className='mt-1'>Time: {movie.runtime} Mins.</p>
         <div className='mt-5 flex  flex-col justify-end w-36'>
-          <button className='bg-amber-600 rounded px-3 py-1 mt-5'>Preview</button>
+          <Link href={`https://www.youtube.com/watch?v=${trailer?.key}`}>
+            <button className='bg-amber-600 rounded px-3 py-1 mt-5'>Preview</button>
+          </Link>
           <button className='bg-blue-500 rounded px-3 py-1 mt-5'>Watch</button>
         </div>
       </div>

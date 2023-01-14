@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Movies } from '../types';
-import imageLoader from '../imageLoader';
 import Link from 'next/link';
+import { Movies, MovieDetails } from '../../../types';
+import imageLoader from '../../../imageLoader';
 
-export default function NowPlaying() {
+export default function NewRelease() {
   const [movies, setMovies] = useState<Movies>();
 
-  async function getMovie() {
-    const res = await fetch('/api/nowPlaying', {
+  useEffect( () => {
+    const fetchData = async () => {
+    const res = await fetch('/api/topRated', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -17,17 +18,17 @@ export default function NowPlaying() {
     const response: Movies = await res.json();
     setMovies(response);
     console.log(response);
-  }
+    }
+    fetchData();
+},[])
+
 
   return (
-    <div>
-      <button className='bg-blue-500 rounded px-3 py-1' onClick={getMovie}>
-        Now Playing
-      </button>
+    <>
       <div className='flex flex-row flex-wrap justify-around'>
         {movies?.results?.map((movie) => (
           <div key={movie.id} className='mb-5'>
-            <Link href={ `/movies/nowPlaying/${movie.id}` }>
+            <Link href={`/movies/topRated/${movie.id}`}>
               <Image
                 className='rounded-lg'
                 loader={imageLoader}
@@ -40,6 +41,6 @@ export default function NowPlaying() {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }
