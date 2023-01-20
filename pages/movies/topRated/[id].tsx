@@ -58,10 +58,10 @@ export default function MoviesPage({ movie, trailer }: { movie: MovieDetails, tr
       />
       <div className='basis-1/4'>
         <h1 className='text-5xl mt-5'>{movie.title}</h1>
-        <p className='mt-5'>Category: {movie.genres.map((x) => x.name)}</p>
+        <p className='mt-5'>Category: {movie.genres.map((x) => x.name).join(', ')}</p>
         <p className='mt-5'>Plot: {movie.overview}</p>
         <p className='mt-5'>Release Date: {movie.release_date}</p>
-        <p className='mt-1'>Rating: {movie.vote_average} /10</p>
+        <p className='mt-1'>Rating: {movie.vote_average.toFixed(1)} /10</p>
         <p className='mt-1'>Time: {movie.runtime} Mins.</p>
         <div className='mt-5 flex  flex-col justify-end w-36'>
           <Link href={`https://www.youtube.com/watch?v=${trailer?.key}`}>

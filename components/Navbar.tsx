@@ -1,12 +1,8 @@
 import Link from 'next/link';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export default function Navbar() {
   return (
     <>
-      <div className='flex justify-end my-[30px] mr-[100px]'>
-        <ConnectButton />
-      </div>
       <div className='flex mt-5 justify-center mb-5'>
         <nav>
           <Link

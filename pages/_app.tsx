@@ -5,15 +5,16 @@ import Layout from '../components/Layout';
 // import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import '@rainbow-me/rainbowkit/styles.css';
 import { getDefaultWallets, RainbowKitProvider, darkTheme } from '@rainbow-me/rainbowkit';
-import { configureChains, createClient, WagmiConfig } from 'wagmi';
-import { polygon, polygonMumbai } from 'wagmi/chains';
+import { configureChains, createClient, WagmiConfig} from 'wagmi';
+import {  polygonMumbai } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
-const { chains, provider, webSocketProvider } = configureChains(
+const { chains, provider } = configureChains(
   [polygonMumbai],
-  [alchemyProvider({ apiKey: process.env.ALCHEMY_API }), publicProvider()]
+  [alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API ?? '' }), publicProvider()]
 );
+
 
 const { connectors } = getDefaultWallets({
   appName: 'Livepeer-Netflix-Clone',
@@ -24,7 +25,6 @@ const wagmiClient = createClient({
   autoConnect: true,
   connectors,
   provider,
-  webSocketProvider,
 });
 
 // const client = createReactClient({
@@ -46,11 +46,16 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <WagmiConfig client={wagmiClient}>
         {/* <LivepeerConfig client={client} theme={livepeerTheme}> */}
-              <RainbowKitProvider chains={chains} theme={darkTheme()}>
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
-              </RainbowKitProvider>
+        <RainbowKitProvider
+          chains={chains}
+          theme={darkTheme({
+            accentColor: '#F59E0B',
+          })}
+        >
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </RainbowKitProvider>
         {/* </LivepeerConfig> */}
       </WagmiConfig>
     </>
