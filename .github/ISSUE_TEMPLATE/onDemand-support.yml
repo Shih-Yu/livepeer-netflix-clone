@@ -32,16 +32,11 @@ body:
       - type: input
     attributes:
       label: Asset ID
-      description: |
-        This makes investigating issues and helping you out significantly easier! For most issues, you will likely get asked to provide one so why not add one now :)
     validations:
       required: true
-
       - type: input
     attributes:
       label: Playback URL
-      description: |
-        If there is a playback url associated with the asset in question.
       placeholder: https://lp-playback.com/hls/<playbackId>/index.m3u8
     validations:
       required: false
