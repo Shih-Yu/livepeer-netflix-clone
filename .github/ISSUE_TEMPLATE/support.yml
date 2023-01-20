@@ -1,6 +1,6 @@
 name: Support
 description: File a bug/issue
-title: '[issue] <title>'
+title: '[Livestream: bug] <title>'
 labels: []
 body:
   - type: markdown
@@ -16,13 +16,13 @@ body:
         - label: I have searched the existing issues
           required: true
 
-    - type: checkboxes
-    attributes:
-      label: Is there an existing issue for this?
-      description: Please search to see if an issue already exists for the bug you encountered.
-      options:
-        - label: I have selected a label for the issue
-          required: true
+    # - type: checkboxes
+    # attributes:
+    #   label: Is there an existing issue for this?
+    #   description: Please search to see if an issue already exists for the bug you encountered.
+    #   options:
+    #     - label: I have selected a label for the issue
+    #       required: true
 
   - type: dropdown
     attributes:
