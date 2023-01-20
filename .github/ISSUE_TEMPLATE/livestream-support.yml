@@ -42,7 +42,7 @@ body:
     validations:
       required: false
 
-       - type: dropdown
+  - type: dropdown
     attributes:
       label: Ingest Type
       options:
