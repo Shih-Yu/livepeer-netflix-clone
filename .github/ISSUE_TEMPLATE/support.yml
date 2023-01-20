@@ -21,9 +21,9 @@ body:
       label: Features
       description: What features of Livepeer are you using?
       options:
-        - label: Livestream
-        - label: On Demand
-        - label: LivepeerJS (SDK)
+        - Livestream
+        - On Demand
+        - LivepeerJS (SDK)
     validations:
       required: true
 
@@ -33,13 +33,6 @@ body:
       description: A concise description of what you're experiencing.
     validations:
       required: true
-
-  - type: textarea
-    attributes:
-      label: Expected Behavior
-      description: A concise description of what you expected to happen.
-    validations:
-      required: false
 
   - type: textarea
     attributes:
