@@ -16,6 +16,12 @@ body:
         - label: I have searched the existing issues
           required: true
 
+  - type: checkboxes
+    attributes:
+      options:
+        - label: I have selected the proper lable for the issue
+          required: true
+
   - type: dropdown
     attributes:
       label: Features
