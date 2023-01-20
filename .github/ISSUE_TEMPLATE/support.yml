@@ -18,8 +18,8 @@ body:
 
     - type: checkboxes
     attributes:
-      label: 
-      description: 
+      label: Is there an existing issue for this?
+      description: Please search to see if an issue already exists for the bug you encountered.
       options:
         - label: I have selected a label for the issue
           required: true
