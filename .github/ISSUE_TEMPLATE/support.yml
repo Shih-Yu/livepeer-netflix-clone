@@ -1,7 +1,7 @@
-name: Support
+name: Livestream Support
 description: File a bug/issue
-title: '[Livestream: bug] <title>'
-labels: []
+title: '[issue] <title>'
+labels: ['Livestream: bug']
 body:
   - type: markdown
     attributes:
@@ -16,22 +16,16 @@ body:
         - label: I have searched the existing issues
           required: true
 
-    # - type: checkboxes
-    # attributes:
-    #   label: Is there an existing issue for this?
-    #   description: Please search to see if an issue already exists for the bug you encountered.
-    #   options:
-    #     - label: I have selected a label for the issue
-    #       required: true
-
   - type: dropdown
     attributes:
       label: Features
       description: What features of Livepeer are you using?
       options:
-        - Livestream
-        - On Demand
-        - LivepeerJS (SDK)
+        - Livestream API
+        - On Demand API
+        - Livestream SDK
+        - On Demand SDK
+        - Livepeer Player
     validations:
       required: true
 
