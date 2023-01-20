@@ -20,7 +20,6 @@ body:
     attributes:
       label: Features
       description: What features of Livepeer are you using?
-      mulitiple: true
       options:
         - label: Livestream
         - label: On Demand
