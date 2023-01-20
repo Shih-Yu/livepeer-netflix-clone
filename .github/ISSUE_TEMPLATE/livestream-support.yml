@@ -65,12 +65,11 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: textarea
     attributes:
-      label: Link to Minimal Reproducible Example (CodeSandbox, StackBlitz, etc.)
+      label: Provide the error message from issue
       description: |
         This makes investigating issues and helping you out significantly easier! For most issues, you will likely get asked to provide one so why not add one now :)
-      placeholder: https://codesandbox.io
     validations:
       required: false
 
