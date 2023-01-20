@@ -1,6 +1,6 @@
 name: 🎥 Livestream Support
-description: File a bug/issue
-title: '[issue] <title>'
+description: Bug/issue realted to livestream
+title: ''
 labels: ['Livestream: bug']
 body:
   - type: markdown
@@ -18,14 +18,14 @@ body:
 
   - type: dropdown
     attributes:
-      label: Features
-      description: What features of Livepeer are you using?
+      label: Issue
+      description: What aspect of Livestream is the issue related to?
       options:
         - Livestream API
-        - On Demand API
         - Livestream SDK
-        - On Demand SDK
-        - Livepeer Player
+        - Playback
+        - Token-gating
+        - Other
     validations:
       required: true
 
