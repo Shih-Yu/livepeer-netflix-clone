@@ -29,12 +29,13 @@ body:
     validations:
       required: true
 
-      - type: input
+  - type: input
     attributes:
       label: Asset ID
     validations:
       required: true
-      - type: input
+
+  - type: input
     attributes:
       label: Playback URL
       placeholder: https://lp-playback.com/hls/<playbackId>/index.m3u8
