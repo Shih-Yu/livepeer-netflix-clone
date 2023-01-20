@@ -29,6 +29,28 @@ body:
     validations:
       required: true
 
+ - type: input
+    attributes:
+      label: Stream ID
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Playback URL
+      placeholder: https://livepeercdn.studio/hls/<playbackId/index.m3u8
+    validations:
+      required: false
+
+       - type: dropdown
+    attributes:
+      label: Ingest Type
+      options:
+        - RTMP Ingest
+        - SRT Ingest
+    validations:
+      required: true
+
   - type: textarea
     attributes:
       label: Current Behavior
